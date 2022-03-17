@@ -4,14 +4,14 @@ import './menu.scss';
 
 export const Menu = () => {
    return (
-      <div>
+      <nav className='menu'>
          <ul>
             <li>
                <Link to='/'>
-                  <h6>Home</h6>
+                  <h6 className='text-white'>Home</h6>
                </Link>
             </li>
          </ul>
-      </div>
+      </nav>
    );
 };

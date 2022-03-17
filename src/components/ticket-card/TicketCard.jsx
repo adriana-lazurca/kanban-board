@@ -11,5 +11,11 @@ export const TicketCard = () => {
       navigate(`/tickets/${ticket.id}`);
    };
 
-   return <button onClick={handleClick}>Ticket</button>;
+   return (
+      <div className='bg-light p-2 my-2'>
+         {/* <button onClick={handleClick}>Ticket</button> */}
+         Ticket {ticket.id}
+         <div>Description</div>
+      </div>
+   );
 };
