@@ -1,4 +1,4 @@
-export const TicketCard = ({ ticket, selectedName }) => {
+export const TicketCard = ({ ticket }) => {
    return (
       <div className='bg-light p-2 my-2'>
          <h6 className='text-start fw-lighter'>{`Ticket #${ticket.id} ${ticket.status}`}</h6>
