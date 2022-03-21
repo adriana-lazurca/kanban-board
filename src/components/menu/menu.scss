@@ -1,5 +1,6 @@
 .menu {
     background-color: grey;
+    padding: 3px;
 
     ul {
         list-style-type: none;
@@ -7,5 +8,9 @@
             display: inline;
             padding: 0;
         }
+    }
+
+    a {
+        text-decoration: none;
     }
 }

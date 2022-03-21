@@ -8,7 +8,7 @@ export const Menu = () => {
          <ul>
             <li>
                <Link to='/'>
-                  <h6 className='text-white'>Home</h6>
+                  <h6 className='text-white'>Kanban Board</h6>
                </Link>
             </li>
          </ul>
