@@ -1,12 +1,12 @@
-import { Fragment } from 'react';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Fragment } from 'react';
 
 import { DesktopBoard } from '../desktop-board/DesktopBoard';
 import { MobileBoard } from '../mobile-board/MobileBoard';
+import { CreateTicketButton } from '../create-ticket-button/CreateTicketButton';
 import { useIsMobile } from '../../hooks/useIsMobile';
 import { getTickets } from '../../apis/tickets';
 
-export const columns = [
+const columns = [
    { name: 'todo', title: 'To do' },
    { name: 'inprogress', title: 'In progress' },
    { name: 'done', title: 'Done' },
@@ -27,6 +27,7 @@ export const KanbanBoard = () => {
 
    return (
       <Fragment>
+         <CreateTicketButton />
          {isMobile && <MobileBoard columns={columns} tickets={tickets} />}
          {!isMobile && <DesktopBoard columns={columns} tickets={tickets} />}
       </Fragment>
