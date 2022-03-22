@@ -1,4 +1,4 @@
-import { useEffect, useState, Fragment } from 'react';
+import React, { useEffect, useState, Fragment } from 'react';
 
 import { DesktopBoard } from '../desktop-board/DesktopBoard';
 import { MobileBoard } from '../mobile-board/MobileBoard';
@@ -12,8 +12,21 @@ const columns = [
    { name: 'done', title: 'Done' },
 ];
 
+export const UpdatedTicketContext = React.createContext();
+
 export const KanbanBoard = () => {
    const [tickets, setTickets] = useState([]);
+
+   const updateTickets = (newTicket) => {
+      const newTickets = [...tickets];
+
+      const ticketIndex = newTickets.findIndex((ticket) => ticket.id === newTicket.id);
+
+      if (ticketIndex !== -1) {
+         newTickets[ticketIndex] = newTicket;
+         setTickets(newTickets);
+      }
+   };
 
    useEffect(() => {
       const fetchTickets = async () => {
@@ -26,10 +39,10 @@ export const KanbanBoard = () => {
    const isMobile = useIsMobile();
 
    return (
-      <Fragment>
+      <UpdatedTicketContext.Provider value={updateTickets}>
          <CreateTicketButton />
          {isMobile && <MobileBoard columns={columns} tickets={tickets} />}
          {!isMobile && <DesktopBoard columns={columns} tickets={tickets} />}
-      </Fragment>
+      </UpdatedTicketContext.Provider>
    );
 };
