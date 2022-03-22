@@ -47,7 +47,6 @@ export const TicketForm = ({ onCancel, onSave, resetWith }) => {
    const handleSubmit = async (values) => {
       const ticket = { ...values, status: 'todo' };
       await createTicket(ticket);
-      console.log(ticket);
       onSave();
    };
 
@@ -55,7 +54,6 @@ export const TicketForm = ({ onCancel, onSave, resetWith }) => {
       <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={handleSubmit}>
          {({ resetForm }) => {
             resetWith(resetForm);
-
             return (
                <Form className='fw-bold'>
                   <Input label='Title' name='title' type='text' />
@@ -72,7 +70,6 @@ export const TicketForm = ({ onCancel, onSave, resetWith }) => {
                         className='btn btn-secondary'
                         onClick={() => {
                            onCancel();
-                           resetForm();
                         }}
                      >
                         Cancel
