@@ -1,4 +1,4 @@
-import React, { useEffect, useState, Fragment } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { DesktopBoard } from '../desktop-board/DesktopBoard';
 import { MobileBoard } from '../mobile-board/MobileBoard';
@@ -41,6 +41,7 @@ export const KanbanBoard = () => {
    return (
       <UpdatedTicketContext.Provider value={updateTickets}>
          <CreateTicketButton />
+
          {isMobile && <MobileBoard columns={columns} tickets={tickets} />}
          {!isMobile && <DesktopBoard columns={columns} tickets={tickets} />}
       </UpdatedTicketContext.Provider>
