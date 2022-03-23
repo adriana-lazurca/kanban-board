@@ -1,5 +1,6 @@
 .board-column {
     background-color: grey;
     max-height: 500px;
+    min-height: 200px;
     overflow-y: auto;
 }
