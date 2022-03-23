@@ -11,5 +11,5 @@ body {
 a:-webkit-any-link {
     text-decoration: none;
     cursor: pointer;
-    color: black;
+    color:white;
 }
