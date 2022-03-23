@@ -17,7 +17,7 @@ export const UpdatedTicketContext = React.createContext();
 export const KanbanBoard = () => {
    const [tickets, setTickets] = useState([]);
 
-   const updateTickets = (newTicket) => {
+   const updateTicket = (newTicket) => {
       const newTickets = [...tickets];
 
       const ticketIndex = newTickets.findIndex((ticket) => ticket.id === newTicket.id);
@@ -26,6 +26,11 @@ export const KanbanBoard = () => {
          newTickets[ticketIndex] = newTicket;
          setTickets(newTickets);
       }
+   };
+
+   const addTicket = (ticket) => {
+      const newTickets = [...tickets, ticket];
+      setTickets(newTickets);
    };
 
    useEffect(() => {
@@ -39,7 +44,7 @@ export const KanbanBoard = () => {
    const isMobile = useIsMobile();
 
    return (
-      <UpdatedTicketContext.Provider value={updateTickets}>
+      <UpdatedTicketContext.Provider value={{ updateTicket, addTicket }}>
          <CreateTicketButton />
 
          {isMobile && <MobileBoard columns={columns} tickets={tickets} />}

@@ -3,7 +3,6 @@ import * as Yup from 'yup';
 
 import { Select } from '../select/Select';
 import { Input } from '../input/Input';
-import { createTicket } from '../../apis/tickets';
 import React from 'react';
 
 const types = [
@@ -44,10 +43,9 @@ const validationSchema = Yup.object({
 });
 
 export const TicketForm = ({ onCancel, onSave, resetWith }) => {
-   const handleSubmit = async (values) => {
+   const handleSubmit = (values) => {
       const ticket = { ...values, status: 'todo' };
-      await createTicket(ticket);
-      onSave();
+      onSave(ticket);
    };
 
    return (

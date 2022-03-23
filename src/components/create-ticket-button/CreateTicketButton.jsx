@@ -1,12 +1,16 @@
+import { useState, useRef, useContext } from 'react';
+import { BsPlusLg } from 'react-icons/bs';
+
 import { TicketForm } from '../ticket-form/TicketForm';
 import { KanbanModal } from '../modal/KanbanModal';
-
-import { useState, useRef } from 'react';
-import { BsPlusLg } from 'react-icons/bs';
+import { UpdatedTicketContext } from '../kanban-board/KanbanBoard';
+import { createTicket } from '../../apis/tickets';
 
 export const CreateTicketButton = () => {
    const [showModal, setShowModal] = useState();
    const resetFormRef = useRef();
+
+   const { addTicket } = useContext(UpdatedTicketContext);
 
    const openModal = () => {
       setShowModal(true);
@@ -17,6 +21,12 @@ export const CreateTicketButton = () => {
       resetFormRef.current();
    };
 
+   const createNewTicket = async (ticket) => {
+      const newTicket = await createTicket(ticket);
+      addTicket(newTicket);
+      closeModal();
+   };
+
    const resetWith = (resetForm) => {
       resetFormRef.current = resetForm;
    };
@@ -24,12 +34,12 @@ export const CreateTicketButton = () => {
    return (
       <>
          <button className='border border-white p-2 m-3' onClick={openModal}>
-            <BsPlusLg className='m-2'/>
-             Add ticket
+            <BsPlusLg className='m-2' />
+            Add ticket
          </button>
 
          <KanbanModal show={showModal} showFooter={false} onCancel={closeModal}>
-            <TicketForm onCancel={closeModal} onSave={closeModal} resetWith={resetWith} />
+            <TicketForm onCancel={closeModal} onSave={createNewTicket} resetWith={resetWith} />
          </KanbanModal>
       </>
    );

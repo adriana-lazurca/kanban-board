@@ -1,14 +1,62 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { v4 as uuid } from 'uuid';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 
 import { BoardColumn } from '../board-column/BoardColumn';
+import { UpdatedTicketContext } from '../kanban-board/KanbanBoard';
+import { updateTicket } from '../../apis/tickets';
+
+const onDragEnd = (result, columns, setColumns, onStatusChange) => {
+   if (!result.destination) return;
+   const { source, destination } = result;
+
+   if (source.droppableId !== destination.droppableId) {
+      // drag to another container
+      const sourceColumn = columns[source.droppableId];
+      const destColumn = columns[destination.droppableId];
+      const sourceItems = [...sourceColumn.items];
+      const destItems = [...destColumn.items];
+      const [removed] = sourceItems.splice(source.index, 1);
+      destItems.splice(destination.index, 0, removed);
+
+      setColumns({
+         ...columns,
+         [source.droppableId]: {
+            ...sourceColumn,
+            items: sourceItems,
+         },
+         [destination.droppableId]: {
+            ...destColumn,
+            items: destItems,
+         },
+      });
+
+      onStatusChange(removed.id, destColumn.name);
+   } else {
+      // drag inside the same container
+      const column = columns[source.droppableId];
+      const copiedItems = [...column.items];
+      const [removed] = copiedItems.splice(source.index, 1);
+      copiedItems.splice(destination.index, 0, removed);
+      setColumns({
+         ...columns,
+         [source.droppableId]: {
+            ...column,
+            items: copiedItems,
+         },
+      });
+   }
+};
 
 export const DesktopBoard = ({ columns, tickets }) => {
    const [containers, setContainers] = useState();
 
-   const onStatusChange = (status) => {
-      
+   const {updateTicket: changeTicket} = useContext(UpdatedTicketContext);
+
+   const onStatusChange = async (ticketId, status) => {
+      const newTicket = { status };
+      const updatedTicket = await updateTicket(ticketId, newTicket);
+      changeTicket(updatedTicket);
    };
 
    useEffect(() => {
@@ -76,44 +124,4 @@ const DroppableContainer = ({ id, children }) => {
          }}
       </Droppable>
    );
-};
-
-const onDragEnd = (result, columns, setColumns, onStatusChange) => {
-   if (!result.destination) return;
-   const { source, destination } = result;
-
-   if (source.droppableId !== destination.droppableId) {
-      // drag to another container
-      const sourceColumn = columns[source.droppableId];
-      const destColumn = columns[destination.droppableId];
-      const sourceItems = [...sourceColumn.items];
-      const destItems = [...destColumn.items];
-      const [removed] = sourceItems.splice(source.index, 1);
-      destItems.splice(destination.index, 0, removed);
-      setColumns({
-         ...columns,
-         [source.droppableId]: {
-            ...sourceColumn,
-            items: sourceItems,
-         },
-         [destination.droppableId]: {
-            ...destColumn,
-            items: destItems,
-         },
-      });
-      onStatusChange(destColumn.name);
-   } else {
-      // drag inside the same container
-      const column = columns[source.droppableId];
-      const copiedItems = [...column.items];
-      const [removed] = copiedItems.splice(source.index, 1);
-      copiedItems.splice(destination.index, 0, removed);
-      setColumns({
-         ...columns,
-         [source.droppableId]: {
-            ...column,
-            items: copiedItems,
-         },
-      });
-   }
 };

@@ -39,17 +39,21 @@ const findIcon = (items, type) => {
 };
 
 export const TicketCard = ({ ticket }) => {
-   const sendNewTicket = useContext(UpdatedTicketContext);
+   const { updateTicket: changeTicket } = useContext(UpdatedTicketContext);
 
-   const changeTicketStatus = async (status) => {
+   const changeTicketStatus = async (ticketId, status) => {
       const newTicket = { status };
       const updatedTicket = await updateTicket(ticket.id, newTicket);
-      sendNewTicket(updatedTicket);
+      changeTicket(updatedTicket);
    };
 
    return (
       <div className='ticket p-2 my-2'>
-         <button onClick={() => changeTicketStatus('inprogress')}>Start progress</button>
+         {/* <button
+         onClick={() => changeTicketStatus('inprogress')}
+         >
+            Start progress
+         </button> */}
          <Link to={`/tickets/${ticket.id}`}>
             <h6 className='text-start fw-lighter'>{`Ticket #${ticket.id} ${ticket.status}`}</h6>
          </Link>
