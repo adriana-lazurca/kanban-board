@@ -1,25 +1,28 @@
 {
-   "tickets": [
-      {
-         "id": 1,
-         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-         "type": "task",
-         "priority": "high",
-         "status" : "todo"
-      },
-      {
-         "id": 2,
-         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-         "type": "bug",
-         "priority": "low",
-         "status" : "inprogress"
-      },
-      {
-        "id": 3,
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        "type": "bug",
-        "priority": "low",
-        "status" : "done"
-     }
-   ]
+  "tickets": [
+    {
+      "title": "Ticket 1",
+      "description": "Ticket 1",
+      "type": "task",
+      "priority": "high",
+      "status": "inprogress",
+      "id": 1
+    },
+    {
+      "title": "Ticket 2",
+      "description": "Ticket 2",
+      "type": "bug",
+      "priority": "low",
+      "status": "inprogress",
+      "id": 2
+    },
+    {
+      "title": "Ticket 3",
+      "description": "Ticket 3",
+      "type": "bug",
+      "priority": "low",
+      "status": "inprogress",
+      "id": 3
+    }
+  ]
 }
