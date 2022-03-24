@@ -1,15 +1,11 @@
 import React, { useContext } from 'react';
 
 import { Link } from 'react-router-dom';
-import { updateTicket } from '../../apis/tickets';
-import { UpdatedTicketContext } from '../kanban-board/KanbanBoard';
-import { types, priorities } from '../../constants';
+import { updateTicket } from '../../../apis/tickets';
+import { UpdatedTicketContext } from '../../kanban-board/KanbanBoard';
+import { types, priorities } from '../../../constants';
+import { findIcon } from '../utils/findIcon';
 import './ticket-card.scss';
-
-const findIcon = (items, type) => {
-   const item = items.find((item) => item.name === type);
-   return item.icon;
-};
 
 export const TicketCard = ({ ticket }) => {
    const { updateTicket: changeTicket } = useContext(UpdatedTicketContext);

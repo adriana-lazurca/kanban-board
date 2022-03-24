@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import { DesktopBoard } from '../desktop-board/DesktopBoard';
 import { MobileBoard } from '../mobile-board/MobileBoard';
-import { CreateTicketButton } from '../create-ticket-button/CreateTicketButton';
+import { AddTicketButton } from '../add-ticket-button/AddTicketButton';
 import { useIsMobile } from '../../hooks/useIsMobile';
 import { getTickets } from '../../apis/tickets';
 import { columns } from '../../constants';
@@ -40,7 +40,7 @@ export const KanbanBoard = () => {
 
    return (
       <UpdatedTicketContext.Provider value={{ updateTicket, addTicket }}>
-         <CreateTicketButton />
+         <AddTicketButton />
 
          {isMobile && <MobileBoard columns={columns} tickets={tickets} />}
          {!isMobile && <DesktopBoard columns={columns} tickets={tickets} />}

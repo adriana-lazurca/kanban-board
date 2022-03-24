@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import { Layout } from '../layout/Layout';
 import { KanbanBoard } from '../kanban-board/KanbanBoard';
-import { TicketDetails } from '../ticket-details/TicketDetails';
+import { TicketDetails } from '../ticket';
 
 export const Navigation = () => {
    return (

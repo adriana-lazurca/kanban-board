@@ -5,7 +5,7 @@ export const DroppableContainer = ({ id, children }) => {
        <Droppable key={id} droppableId={id}>
           {(provided, snapshot) => {
              return (
-                <div
+                <div className='rounded-3'
                    {...provided.droppableProps}
                    ref={provided.innerRef}
                    style={{

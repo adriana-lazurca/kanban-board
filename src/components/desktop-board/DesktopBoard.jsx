@@ -4,9 +4,10 @@ import { DragDropContext } from 'react-beautiful-dnd';
 
 import { BoardColumn } from '../board-column/BoardColumn';
 import { UpdatedTicketContext } from '../kanban-board/KanbanBoard';
-import { TicketCard } from '../ticket-card/TicketCard';
+import { TicketCard } from '../ticket';
 import { DroppableContainer, DraggableItem } from '../dnd';
 import { updateTicket } from '../../apis/tickets';
+import './desktop-board.scss';
 
 const onDragEnd = (result, columns, setColumns, onStatusChange) => {
    if (!result.destination) return;
@@ -89,9 +90,8 @@ export const DesktopBoard = ({ columns, tickets }) => {
                   Object.entries(containers).map(([containerId, container]) => {
                      return (
                         <div className='col' key={containerId}>
-                           <h6 className='text-center'>{container.title}</h6>
-
                            <DroppableContainer id={containerId}>
+                              <h6 className='text-center py-2'>{container.title.toUpperCase()}</h6>
                               <BoardColumn
                                  tickets={container.items}
                                  selectedColumnName={container.name}

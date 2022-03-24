@@ -1,12 +1,12 @@
 import { useState, useRef, useContext } from 'react';
 import { BsPlusLg } from 'react-icons/bs';
 
-import { TicketForm } from '../ticket-form/TicketForm';
+import { TicketForm } from '../ticket';
 import { KanbanModal } from '../modal/KanbanModal';
 import { UpdatedTicketContext } from '../kanban-board/KanbanBoard';
 import { createTicket } from '../../apis/tickets';
 
-export const CreateTicketButton = () => {
+export const AddTicketButton = () => {
    const [showModal, setShowModal] = useState();
    const resetFormRef = useRef();
 
@@ -33,7 +33,7 @@ export const CreateTicketButton = () => {
 
    return (
       <>
-         <button className='border border-white p-2 m-3' onClick={openModal}>
+         <button className='border rounded-3 border-white p-2 m-3' onClick={openModal}>
             <BsPlusLg className='m-2' />
             Add ticket
          </button>
