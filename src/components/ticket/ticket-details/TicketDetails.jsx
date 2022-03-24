@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { getTicket } from '../../../apis/tickets';
 import { types, priorities } from '../../../constants';
 import { findIcon } from '../utils/findIcon';
+import { TicketDetail } from './';
 import './ticket-details.scss';
 
 const capitalizeFirstLetter = (word) => {
@@ -16,8 +17,8 @@ export const TicketDetails = () => {
 
    useEffect(() => {
       const fetchTicket = async () => {
-         const data = await getTicket(ticketId);
-         setTicket(data);
+         const ticket = await getTicket(ticketId);
+         setTicket(ticket);
       };
       fetchTicket();
    }, [ticketId]);
@@ -27,27 +28,21 @@ export const TicketDetails = () => {
          {ticket && (
             <section className='container-fluid p-2 my-4 mx-2'>
                <h2 className='text-start fw-bold'>{ticket.title}</h2>
-               <section className='container-fluid align-items-center'>
-                  <h6 className='text-start my-4'>Details</h6>
-                  <p className='row align-items-center fs-6 fw-lighter p-1'>
-                     <span className='col-2 col-sm-1 fw-lighter m-2'>Type:</span>
-                     <span className='col-9 col-sm-5 fw-bold '>
-                        {capitalizeFirstLetter(ticket.type)}
-                        {findIcon(types, ticket.type)}
-                     </span>
-                  </p>
 
-                  <p className='row align-items-center fs-6 fw-lighter p-1'>
-                     <span className='col-2 col-sm-1 fw-lighter m-2'>Priority:</span>
-                     <span className='col-9 col-sm-5 fw-bold'>
-                        {' '}
-                        {capitalizeFirstLetter(ticket.priority)} {findIcon(priorities, ticket.priority)}
-                     </span>
-                  </p>
-                  <p className='row align-items-center fs-6 fw-lighter p-1'>
-                     <span className='col-2 col-sm-1 fw-lighter m-2'>Status:</span>
-                     <span className='col-9 col-sm-5 fw-bold '>{capitalizeFirstLetter(ticket.status)}</span>
-                  </p>
+               <section className='ticket-details container-fluid align-items-center'>
+                  <h6 className='text-start my-4'>Details</h6>
+
+                  <TicketDetail title='Type'>
+                     {capitalizeFirstLetter(ticket.type)}
+                     <span className='px-3'>{findIcon(types, ticket.type)}</span>
+                  </TicketDetail>
+
+                  <TicketDetail title='Priority'>
+                     {capitalizeFirstLetter(ticket.priority)}
+                     <span className='px-3'>{findIcon(priorities, ticket.priority)}</span>
+                  </TicketDetail>
+
+                  <TicketDetail title='Status'>{capitalizeFirstLetter(ticket.status)}</TicketDetail>
                </section>
 
                <section className='my-5'>

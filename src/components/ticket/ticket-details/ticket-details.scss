@@ -1,5 +1,9 @@
 @import "../../../styles/variables/colors.scss";
 
+.ticket-details {
+    max-width: 70%;
+    margin-left: 0;
+}
 
 .description {
     background-color: $lightGray;
