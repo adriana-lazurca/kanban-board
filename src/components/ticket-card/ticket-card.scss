@@ -1,4 +1,8 @@
+@import "bootstrap/scss/_functions.scss";
+@import "bootstrap/scss/_variables.scss";
+
 .ticket {
-    background-color: #456c86;
+    // background-color: #456c86;
+     background-color: $cyan-700;
     color: white;
 }

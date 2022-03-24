@@ -1,9 +1,11 @@
 import { useEffect, useState, useContext } from 'react';
 import { v4 as uuid } from 'uuid';
-import { DragDropContext, Droppable } from 'react-beautiful-dnd';
+import { DragDropContext } from 'react-beautiful-dnd';
 
 import { BoardColumn } from '../board-column/BoardColumn';
 import { UpdatedTicketContext } from '../kanban-board/KanbanBoard';
+import { TicketCard } from '../ticket-card/TicketCard';
+import { DroppableContainer, DraggableItem } from '../dnd';
 import { updateTicket } from '../../apis/tickets';
 
 const onDragEnd = (result, columns, setColumns, onStatusChange) => {
@@ -51,7 +53,7 @@ const onDragEnd = (result, columns, setColumns, onStatusChange) => {
 export const DesktopBoard = ({ columns, tickets }) => {
    const [containers, setContainers] = useState();
 
-   const {updateTicket: changeTicket} = useContext(UpdatedTicketContext);
+   const { updateTicket: changeTicket } = useContext(UpdatedTicketContext);
 
    const onStatusChange = async (ticketId, status) => {
       const newTicket = { status };
@@ -94,6 +96,11 @@ export const DesktopBoard = ({ columns, tickets }) => {
                                  tickets={container.items}
                                  selectedColumnName={container.name}
                                  columnTitle={container.title}
+                                 renderTicket={(ticket, index) => (
+                                    <DraggableItem id={ticket.id} index={index} key={ticket.id}>
+                                       <TicketCard key={ticket.id} ticket={ticket} />
+                                    </DraggableItem>
+                                 )}
                               />
                            </DroppableContainer>
                         </div>
@@ -102,26 +109,5 @@ export const DesktopBoard = ({ columns, tickets }) => {
             </DragDropContext>
          </div>
       </div>
-   );
-};
-
-const DroppableContainer = ({ id, children }) => {
-   return (
-      <Droppable key={id} droppableId={id}>
-         {(provided, snapshot) => {
-            return (
-               <div
-                  {...provided.droppableProps}
-                  ref={provided.innerRef}
-                  style={{
-                     background: snapshot.isDraggingOver ? 'lightblue' : 'lightgrey',
-                  }}
-               >
-                  {children}
-                  {provided.placeholder}
-               </div>
-            );
-         }}
-      </Droppable>
    );
 };

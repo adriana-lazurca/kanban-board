@@ -11,5 +11,10 @@ body {
 a:-webkit-any-link {
     text-decoration: none;
     cursor: pointer;
-    color:white;
+    color: white;
+}
+
+a:hover {
+    font-weight: bold;
+    color: lightgray !important;
 }

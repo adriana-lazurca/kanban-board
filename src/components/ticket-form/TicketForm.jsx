@@ -1,31 +1,10 @@
+import React from 'react';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 
 import { Select } from '../select/Select';
 import { Input } from '../input/Input';
-import React from 'react';
-
-const types = [
-   {
-      name: 'task',
-      title: 'Task',
-   },
-   {
-      name: 'bug',
-      title: 'Bug',
-   },
-];
-
-const priorities = [
-   {
-      name: 'high',
-      title: 'High',
-   },
-   {
-      name: 'low',
-      title: 'Low',
-   },
-];
+import { types, priorities } from '../../constants';
 
 const initialValues = {
    title: '',

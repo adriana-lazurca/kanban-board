@@ -5,12 +5,7 @@ import { MobileBoard } from '../mobile-board/MobileBoard';
 import { CreateTicketButton } from '../create-ticket-button/CreateTicketButton';
 import { useIsMobile } from '../../hooks/useIsMobile';
 import { getTickets } from '../../apis/tickets';
-
-const columns = [
-   { name: 'todo', title: 'To do' },
-   { name: 'inprogress', title: 'In progress' },
-   { name: 'done', title: 'Done' },
-];
+import { columns } from '../../constants';
 
 export const UpdatedTicketContext = React.createContext();
 
