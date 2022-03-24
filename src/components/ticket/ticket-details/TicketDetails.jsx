@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 
 import { getTicket } from '../../../apis/tickets';
 import { types, priorities } from '../../../constants';
-import {findIcon} from '../utils/findIcon'
+import { findIcon } from '../utils/findIcon';
 import './ticket-details.scss';
 
 const capitalizeFirstLetter = (word) => {
@@ -25,40 +25,40 @@ export const TicketDetails = () => {
    return (
       <>
          {ticket && (
-            <div className='bg-light p-2 my-2 mx-2'>
+            <section className='container-fluid p-2 my-4 mx-2'>
                <h2 className='text-start fw-bold'>{ticket.title}</h2>
-               <div>
+               <section className='container-fluid align-items-center'>
                   <h6 className='text-start my-4'>Details</h6>
-                  <p className=' fs-6 fw-lighter p-1'>
-                     <span className='fw-lighter m-2'>Type:</span>
-                     <span className='fw-bold '>
+                  <p className='row align-items-center fs-6 fw-lighter p-1'>
+                     <span className='col-2 col-sm-1 fw-lighter m-2'>Type:</span>
+                     <span className='col-9 col-sm-5 fw-bold '>
                         {capitalizeFirstLetter(ticket.type)}
                         {findIcon(types, ticket.type)}
                      </span>
                   </p>
 
-                  <p className='fs-6 fw-lighter p-1'>
-                     <span className='fw-lighter m-2'>Priority:</span>
-                     <span className='fw-bold'>
+                  <p className='row align-items-center fs-6 fw-lighter p-1'>
+                     <span className='col-2 col-sm-1 fw-lighter m-2'>Priority:</span>
+                     <span className='col-9 col-sm-5 fw-bold'>
                         {' '}
                         {capitalizeFirstLetter(ticket.priority)} {findIcon(priorities, ticket.priority)}
                      </span>
                   </p>
-                  <p className='fs-6 fw-lighter p-1'>
-                     <span className='fw-lighter m-2'>Status:</span>
-                     <span className='fw-bold '>{capitalizeFirstLetter(ticket.status)}</span>
+                  <p className='row align-items-center fs-6 fw-lighter p-1'>
+                     <span className='col-2 col-sm-1 fw-lighter m-2'>Status:</span>
+                     <span className='col-9 col-sm-5 fw-bold '>{capitalizeFirstLetter(ticket.status)}</span>
                   </p>
-               </div>
+               </section>
 
-               <div className='my-5'>
+               <section className='my-5'>
                   <h6 className='my-4'>Description</h6>
                   {ticket.description === '' ? (
                      <div className='description'>No description</div>
                   ) : (
                      <div className='description'>{ticket.description}</div>
                   )}
-               </div>
-            </div>
+               </section>
+            </section>
          )}
       </>
    );

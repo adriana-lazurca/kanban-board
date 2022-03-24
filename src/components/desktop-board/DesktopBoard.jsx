@@ -1,6 +1,6 @@
 import { useEffect, useState, useContext } from 'react';
-import { v4 as uuid } from 'uuid';
 import { DragDropContext } from 'react-beautiful-dnd';
+import { v4 as uuid } from 'uuid';
 
 import { BoardColumn } from '../board-column/BoardColumn';
 import { UpdatedTicketContext } from '../kanban-board/KanbanBoard';
@@ -89,7 +89,7 @@ export const DesktopBoard = ({ columns, tickets }) => {
                {containers &&
                   Object.entries(containers).map(([containerId, container]) => {
                      return (
-                        <div className='col' key={containerId}>
+                        <section className='col' key={containerId}>
                            <DroppableContainer id={containerId}>
                               <h6 className='text-center py-2'>{container.title.toUpperCase()}</h6>
                               <BoardColumn
@@ -103,7 +103,7 @@ export const DesktopBoard = ({ columns, tickets }) => {
                                  )}
                               />
                            </DroppableContainer>
-                        </div>
+                        </section>
                      );
                   })}
             </DragDropContext>

@@ -35,10 +35,10 @@ export const KanbanModal = ({ show, children, onCancel, showFooter = true }) => 
          aria-hidden='true'
       >
          <div className='modal-dialog'>
-            <div className='modal-content'>
-               <div className='modal-header'>
+            <section className='modal-content'>
+               <header className='modal-header'>
                   <h5 className='modal-title' id='exampleModalLabel'>
-                     Modal title
+                     Create new ticket
                   </h5>
                   <button
                      type='button'
@@ -47,12 +47,12 @@ export const KanbanModal = ({ show, children, onCancel, showFooter = true }) => 
                      aria-label='Close'
                      onClick={() => onCancel()}
                   ></button>
-               </div>
+               </header>
 
                <div className='modal-body'>{children}</div>
 
                {showFooter && (
-                  <div className='modal-footer'>
+                  <footer className='modal-footer'>
                      <button
                         type='button'
                         className='btn btn-secondary'
@@ -64,9 +64,9 @@ export const KanbanModal = ({ show, children, onCancel, showFooter = true }) => 
                      <button type='button' className='btn btn-primary'>
                         Save
                      </button>
-                  </div>
+                  </footer>
                )}
-            </div>
+            </section>
          </div>
       </div>
    );

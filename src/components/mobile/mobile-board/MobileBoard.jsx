@@ -11,7 +11,7 @@ export const MobileBoard = ({ columns, tickets }) => {
    const columnTickets = tickets.filter((ticket) => ticket.status === selectedColumnName);
 
    return (
-      <div>
+      <section>
          <NavigationColumns
             columns={columns}
             selectedColumnName={selectedColumnName}
@@ -25,6 +25,6 @@ export const MobileBoard = ({ columns, tickets }) => {
                renderTicket={(ticket) => <TicketCard key={ticket.id} ticket={ticket} />}
             />
          </div>
-      </div>
+      </section>
    );
 };

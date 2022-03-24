@@ -3,12 +3,12 @@ import { Menu } from '../menu/Menu';
 export const Layout = ({ children }) => {
    return (
       <div className='container-fluid header-color mb-5'>
-         <div className='row header'>
-            <div className='col'>
+         <header className='row header'>
+            <nav className='col'>
                <Menu />
-            </div>
-         </div>
-         <div>{children}</div>
+            </nav>
+         </header>
+         <main>{children}</main>
       </div>
    );
 };

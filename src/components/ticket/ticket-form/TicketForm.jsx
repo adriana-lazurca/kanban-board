@@ -5,6 +5,7 @@ import * as Yup from 'yup';
 import { Select } from '../../form-elements/select/Select';
 import { Input } from '../../form-elements/input/Input';
 import { types, priorities } from '../../../constants';
+import './ticket-form.scss'
 
 const initialValues = {
    title: '',
@@ -38,8 +39,8 @@ export const TicketForm = ({ onCancel, onSave, resetWith }) => {
                   <Select label='Type' name='type' options={types} />
                   <Select label='Priority' name='priority' options={priorities} />
 
-                  <div className='modal-footer'>
-                     <button type='submit' className='btn btn-primary'>
+                  <footer className='modal-footer'>
+                     <button type='submit' className='btn btn-save'>
                         Save
                      </button>
                      <button
@@ -51,7 +52,7 @@ export const TicketForm = ({ onCancel, onSave, resetWith }) => {
                      >
                         Cancel
                      </button>
-                  </div>
+                  </footer>
                </Form>
             );
          }}
