@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { BoardColumn } from '../../board-column/BoardColumn';
 import { NavigationColumns } from '../navigation-columns/NavigationColumns';
 import { TicketCard } from '../../ticket';
+import './mobile-board.scss';
 
 export const MobileBoard = ({ columns, tickets }) => {
    const [selectedColumnName, setSelectedColumnName] = useState('todo');
@@ -17,7 +18,7 @@ export const MobileBoard = ({ columns, tickets }) => {
             onSelect={setSelectedColumnName}
          />
 
-         <div style={{ width: '90%', margin: 'auto', backgroundColor: 'lightgray', padding: 8 }}>
+         <div className='mobile-column'>
             <BoardColumn
                tickets={columnTickets}
                selectedColumnName={selectedColumnName}

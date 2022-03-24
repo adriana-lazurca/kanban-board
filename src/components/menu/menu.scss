@@ -1,5 +1,7 @@
+@import "../../assets/styles/variables/colors.scss";
+
 .menu {
-    background-color: grey;
+    background-color: $primayGray;
 
     ul {
         list-style-type: none;

@@ -33,7 +33,7 @@ export const AddTicketButton = () => {
 
    return (
       <>
-         <button className='border rounded-3 border-white p-2 m-3' onClick={openModal}>
+         <button className='border rounded-3 border-white p-2 mx-3 my-4' onClick={openModal}>
             <BsPlusLg className='m-2' />
             Add ticket
          </button>

@@ -11,7 +11,7 @@ export const DraggableItem = ({ id, index, children }) => {
                    {...provided.dragHandleProps}
                    style={{
                       ...provided.draggableProps.style,
-                      backgroundColor: snapshot.isDragging ? '#032830' : '#087990',
+                      backgroundColor: snapshot.isDragging ? '#055464' : '#087990',
                       userSelect: 'none',
                    }}
                 >

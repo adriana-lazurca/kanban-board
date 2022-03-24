@@ -83,7 +83,7 @@ export const DesktopBoard = ({ columns, tickets }) => {
    }, [columns, tickets]);
 
    return (
-      <div className='container-fluid pb-5'>
+      <div className='container-fluid container-tickets pb-5'>
          <div className='row'>
             <DragDropContext onDragEnd={(result) => onDragEnd(result, containers, setContainers, onStatusChange)}>
                {containers &&

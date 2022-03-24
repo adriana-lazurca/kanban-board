@@ -1,8 +1,8 @@
 @import "../../../assets/styles/variables/colors.scss";
 
-
-.description {
+.mobile-column {
+    width: 90%;
+    margin: auto;
     background-color: $lightGray;
-    height: 100px;
-    width: 50%;
+    padding: 8;
 }

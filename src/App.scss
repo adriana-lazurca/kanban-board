@@ -1,3 +1,5 @@
+@import "./assets/styles/variables/colors.scss";
+
 html,
 body {
     height: 100%;
@@ -5,7 +7,7 @@ body {
 
 body {
     margin: 0 !important;
-    background-color: #f5f5f5 !important;
+    background-color: $lighterGray !important;
 }
 
 a:-webkit-any-link {
@@ -16,5 +18,5 @@ a:-webkit-any-link {
 
 a:hover {
     font-weight: bold;
-    color: lightgray !important;
+    color: $lightGray !important;
 }

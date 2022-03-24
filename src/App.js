@@ -1,5 +1,5 @@
 import { Navigation } from './components/navigation/Navigation';
-import './App.css';
+import './App.scss';
 
 const App = () => {
    return <Navigation />;

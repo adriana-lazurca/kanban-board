@@ -5,6 +5,8 @@ import { updateTicket } from '../../../apis/tickets';
 import { UpdatedTicketContext } from '../../kanban-board/KanbanBoard';
 import { types, priorities } from '../../../constants';
 import { findIcon } from '../utils/findIcon';
+import { useIsMobile } from '../../../hooks/useIsMobile';
+
 import './ticket-card.scss';
 
 export const TicketCard = ({ ticket }) => {
@@ -15,9 +17,11 @@ export const TicketCard = ({ ticket }) => {
       const updatedTicket = await updateTicket(ticket.id, newTicket);
       changeTicket(updatedTicket);
    };
+   const isMobile = useIsMobile();
 
    return (
-      <div className='ticket p-2 my-2'>
+      <div className={`ticket p-2 my-2 ${isMobile ? 'bg-mobile' : ''}`}>
+         {/* {`button ${showAbout ? 'button--active' : 'button--inactive'}` */}
          {/* <button
          onClick={() => changeTicketStatus('inprogress')}
          >
