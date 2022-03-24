@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import { DesktopBoard } from '../desktop-board/DesktopBoard';
-import { MobileBoard } from '../mobile-board/MobileBoard';
+import { MobileBoard } from '../mobile/mobile-board/MobileBoard';
 import { AddTicketButton } from '../add-ticket-button/AddTicketButton';
 import { useIsMobile } from '../../hooks/useIsMobile';
 import { getTickets } from '../../apis/tickets';

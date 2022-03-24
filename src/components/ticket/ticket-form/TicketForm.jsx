@@ -2,8 +2,8 @@ import React from 'react';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 
-import { Select } from '../../select/Select';
-import { Input } from '../../input/Input';
+import { Select } from '../../form-elements/select/Select';
+import { Input } from '../../form-elements/input/Input';
 import { types, priorities } from '../../../constants';
 
 const initialValues = {
