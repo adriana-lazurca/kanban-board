@@ -9,7 +9,7 @@ export const DroppableContainer = ({ id, children }) => {
                    {...provided.droppableProps}
                    ref={provided.innerRef}
                    style={{
-                      background: snapshot.isDraggingOver ? 'lightblue' : 'lightgrey',
+                      background: snapshot.isDraggingOver ? '#add8e6' : '#dbdbdb',
                    }}
                 >
                    {children}
