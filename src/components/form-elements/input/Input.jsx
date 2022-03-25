@@ -1,5 +1,7 @@
 import { ErrorMessage, useField } from 'formik';
 
+import './input.scss'
+
 export const Input = ({ label, ...props }) => {
    const [field, meta] = useField(props);
 

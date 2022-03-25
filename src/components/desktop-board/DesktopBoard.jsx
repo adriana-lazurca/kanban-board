@@ -59,7 +59,8 @@ export const DesktopBoard = ({ columns, tickets }) => {
    const onStatusChange = async (ticketId, status) => {
       const newTicket = { status };
       const updatedTicket = await updateTicket(ticketId, newTicket);
-      changeTicket(updatedTicket);
+
+      updatedTicket && changeTicket(updatedTicket);
    };
 
    useEffect(() => {
@@ -91,7 +92,10 @@ export const DesktopBoard = ({ columns, tickets }) => {
                      return (
                         <section className='col' key={containerId}>
                            <DroppableContainer id={containerId}>
-                              <h6 className='text-center py-2'>{container.title.toUpperCase()}</h6>
+                              <div className='text-center py-1'>
+                                 <h6 className='d-inline py-2 px-2'>{container.title.toUpperCase()}</h6>
+                                 <span className='container-length fw-lighter'>{container.items.length}</span>
+                              </div>
                               <BoardColumn
                                  tickets={container.items}
                                  selectedColumnName={container.name}
