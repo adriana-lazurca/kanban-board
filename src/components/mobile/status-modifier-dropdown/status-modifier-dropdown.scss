@@ -1,0 +1,13 @@
+@import "../../../styles/variables/colors.scss";
+
+.status-container {
+    position: absolute;
+    right: 1%;
+    bottom: 1%;
+    background-color: $mainGreen !important;
+
+    .btn-group button {
+        background-color: $mainGreen !important;
+        border-color: $mainGray !important;
+    }
+}

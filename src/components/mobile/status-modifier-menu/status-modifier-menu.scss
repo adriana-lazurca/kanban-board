@@ -1,0 +1,13 @@
+@import "../../../styles/variables/colors.scss";
+
+.dropdown-menu {
+    color: $mainGreen !important;
+
+    .dropdown-item {
+        color: inherit !important;
+        cursor: pointer;
+        &:active {
+            background-color: white;
+        }
+    }
+}

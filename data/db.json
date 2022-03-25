@@ -5,7 +5,7 @@
       "description": "Ticket 1",
       "type": "task",
       "priority": "high",
-      "status": "inprogress",
+      "status": "done",
       "id": 1,
       "order": 1
     },
@@ -14,7 +14,7 @@
       "description": "Ticket 2",
       "type": "bug",
       "priority": "low",
-      "status": "inprogress",
+      "status": "todo",
       "id": 2,
       "order": 1
     },
@@ -32,7 +32,7 @@
       "description": "",
       "type": "bug",
       "priority": "high",
-      "status": "inprogress",
+      "status": "done",
       "id": 4,
       "order": 3
     },
@@ -41,7 +41,7 @@
       "description": "",
       "type": "task",
       "priority": "high",
-      "status": "inprogress",
+      "status": "todo",
       "id": 5,
       "order": 1
     },
@@ -50,7 +50,7 @@
       "description": "",
       "type": "bug",
       "priority": "high",
-      "status": "todo",
+      "status": "inprogress",
       "id": 6,
       "order": 4
     },
@@ -59,7 +59,7 @@
       "description": "",
       "type": "task",
       "priority": "high",
-      "status": "inprogress",
+      "status": "done",
       "id": 7,
       "order": 2
     },
@@ -68,7 +68,7 @@
       "description": "description for ticket 8",
       "type": "bug",
       "priority": "low",
-      "status": "todo",
+      "status": "done",
       "id": 8
     }
   ]
