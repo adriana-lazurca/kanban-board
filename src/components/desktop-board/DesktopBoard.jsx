@@ -98,8 +98,6 @@ export const DesktopBoard = ({ columns, tickets }) => {
                               </div>
                               <BoardColumn
                                  tickets={container.items}
-                                 selectedColumnName={container.name}
-                                 columnTitle={container.title}
                                  renderTicket={(ticket, index) => (
                                     <DraggableItem id={ticket.id} index={index} key={ticket.id}>
                                        <TicketCard key={ticket.id} ticket={ticket} />

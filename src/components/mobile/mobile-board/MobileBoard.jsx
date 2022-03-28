@@ -21,7 +21,6 @@ export const MobileBoard = ({ columns, tickets }) => {
          <div className='mobile-column'>
             <BoardColumn
                tickets={columnTickets}
-               selectedColumnName={selectedColumnName}
                renderTicket={(ticket) => <MobileTicketCard key={ticket.id} ticket={ticket} />}
             />
          </div>
