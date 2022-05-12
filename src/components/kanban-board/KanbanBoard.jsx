@@ -41,7 +41,6 @@ export const KanbanBoard = () => {
    return (
       <UpdatedTicketContext.Provider value={{ updateTicket, addTicket }}>
          <AddTicketButton />
-         <span class="badge badge-pill badge-success">Primary</span>
          {isMobile && <MobileBoard columns={columns} tickets={tickets} />}
          {!isMobile && <DesktopBoard columns={columns} tickets={tickets} />}
       </UpdatedTicketContext.Provider>
